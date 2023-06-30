@@ -1,0 +1,115 @@
+:root {
+  --channel-amber-300: 252, 211, 77;
+  --channel-amber-400: 251, 191, 36;
+  --channel-gray-400: 156, 163, 175;
+  --channel-slate-900: 15, 23, 42;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+aside {
+  background-color: rgb(var(--channel-slate-900));
+  color: rgb(var(--channel-gray-400));
+  padding: 1rem;
+
+  > menu {
+    > li {
+      > a {
+        border-left: 2px solid rgb(var(--channel-slate-900));
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        width: 100%;
+
+        &.active {
+          border-left: 2px solid rgb(var(--channel-amber-400));
+          color: rgb(var(--channel-amber-400));
+
+          &:hover {
+            border-left-color: white;
+          }
+        }
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+body {
+  display: grid;
+  font-family: 'Helvetica';
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: 1fr;
+  margin: 0;
+}
+
+main {
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  height: 100vh;
+  padding: 1rem;
+  min-width: min-content;
+  overflow-y: auto;
+}
+
+menu, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+.key-value-pair {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: max-content max-content max-content;
+  margin-bottom: 1rem;
+
+  label {
+    margin-right: 0.25rem;
+  }
+}
+
+#frame-1 {
+  border: 1px solid rgb(var(--channel-slate-900));
+  display: block;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  position: relative;
+
+  &::before {
+    background-color: white;
+    content: 'turbo-frame#frame-1';
+    font-family: Virgil;
+    left: 0.5rem;
+    padding: 0.4rem;
+    position: absolute;
+    top: -1rem;
+  }
+}
+
+#flash {
+  border: 1px solid rgb(var(--channel-slate-900));
+  padding: 1rem;
+  position: relative;
+
+  &::before {
+    background-color: white;
+    content: 'div#flash';
+    font-family: Virgil;
+    left: 0.5rem;
+    padding: 0.4rem;
+    position: absolute;
+    top: -1rem;
+  }
+}

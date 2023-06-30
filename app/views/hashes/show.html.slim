@@ -1,0 +1,9 @@
+= render 'layouts/turbo_frame'
+  - now = Time.now
+  h4 Key-value pairs
+  ul
+    - session.fetch(:hash, {}).each do |k, v|
+      - ttl = ActiveSupport::Duration.build(Time.parse(v['time']) - now).parts[:seconds]
+      li
+        strong #{k}:
+        span #{v['value']} (ttl: #{"#{'%.3f' % ttl}"} seconds)

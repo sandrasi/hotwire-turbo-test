@@ -1,0 +1,18 @@
+= render 'layouts/turbo_frame'
+  h4 Add key-value pairs
+  = simple_form_for :hash, data: { controller: 'hash' }, url: hash_path do |f|
+    - keys_input = \
+      f.input :keys, as: :string, label: 'Key', required: false, input_html: { multiple: true }
+    - values_input = \
+      f.input :values, as: :string, label: 'Value', required: false, input_html: { multiple: true }
+    template data-hash-target="inputsTemplate"
+      .key-value-pair
+        = keys_input
+        = values_input
+    .form-inputs
+      .key-value-pair
+        = keys_input
+        = values_input
+        = f.button :button, '+', type: :button, data: { action: 'hash#add' }
+    .form-actions
+      = f.button :submit, 'Submit'

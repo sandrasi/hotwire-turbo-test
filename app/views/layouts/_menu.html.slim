@@ -1,0 +1,9 @@
+menu
+  = render 'layouts/menu_item',
+          path: hash_path,
+          label: 'Key-value pairs',
+          is_active: params[:action] == 'show'
+  = render 'layouts/menu_item',
+          path: new_hash_path,
+          label: 'Add key-value pairs',
+          is_active: %w[create new].include?(params[:action])

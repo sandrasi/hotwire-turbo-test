@@ -1,0 +1,6 @@
+= turbo_frame_tag 'frame-1', data: { 'turbo-action': 'advance' }
+  = yield
+  - if turbo_frame_request_id == 'frame-1'
+    = turbo_stream.replace_all 'menu', partial: 'layouts/menu'
+    = turbo_stream.replace 'flash' do
+      = render 'layouts/flash', message: flash[:notice]

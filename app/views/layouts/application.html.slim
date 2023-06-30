@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title
+      | Hotwire Turbo Test
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'virgil-font', 'data-turbo-track': 'reload'
+    = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
+    = javascript_importmap_tags
+    javascript:
+      document.addEventListener('turbo:before-cache', (_event) => {
+        console.log('turbo:before-cache');
+        console.log(document.querySelector('#frame-1'));
+        console.log(document.querySelector('#flash'));
+      });
+  body
+    aside
+      = render 'layouts/menu'
+    main
+      = yield
+      = render 'layouts/flash'
